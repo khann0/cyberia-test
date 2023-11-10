@@ -34,6 +34,7 @@ export default {
 
 <style lang="scss">
 .projects__list {
+  margin-bottom: 174px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 40px;
