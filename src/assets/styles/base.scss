@@ -22,6 +22,9 @@ body {
   padding: 0 30px;
   margin: 0 auto;
 }
+.main {
+  flex-grow: 1;
+}
 
 .title {
   font-family: $ff-rubik;
