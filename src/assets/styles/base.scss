@@ -1,0 +1,41 @@
+@import '_reset.scss';
+@import '_fonts.scss';
+@import '_vars.scss';
+
+body {
+  background-color: $clr-bg;
+  color: $clr-main;
+  font-family: $ff-os;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1240px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: $ff-rubik;
+  font-size: 38px;
+  font-weight: 500;
+}
+
+.logo {
+  & svg path {
+    transition: fill 0.3s ease-in-out;
+  }
+  &:hover {
+    & svg path {
+      fill: $clr-accent;
+    }
+  }
+}
