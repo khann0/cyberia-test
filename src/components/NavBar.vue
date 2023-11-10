@@ -8,7 +8,9 @@
         <a href="" class="link nav__link">Услуги</a>
       </li>
       <li class="nav__item">
-        <a href="" class="link nav__link">Проекты</a>
+        <a href="" class="link nav__link" @click="$router.push(`/projects`)">
+          Проекты
+        </a>
       </li>
       <li class="nav__item">
         <a href="" class="link nav__link">Блог</a>

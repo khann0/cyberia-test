@@ -1,7 +1,6 @@
 <template>
   <the-header></the-header>
   <router-view />
-  <main class="main"></main>
   <the-footer></the-footer>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="container header__container">
-      <a href="" class="logo header__logo">
+      <a href="" class="logo header__logo" @click="$router.push(`/`)">
         <svg
           width="131"
           height="28"

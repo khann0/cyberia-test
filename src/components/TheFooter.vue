@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="container footer__container">
       <div class="footer__company">
-        <a href="" class="logo footer__logo">
+        <a href="" class="logo footer__logo" @click="$router.push(`/`)">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="196"
