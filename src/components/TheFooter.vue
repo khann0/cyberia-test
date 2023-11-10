@@ -99,11 +99,11 @@
 export default {};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/styles/base';
 
 .footer {
-  padding: 130px 0px;
+  padding: 95px 0px;
   background-color: $clr-bg;
   font-family: $ff-os;
   line-height: normal;
@@ -117,13 +117,15 @@ export default {};
     max-width: 200px;
   }
   &__logo {
-    width: 100%;
+    width: 196px;
+    height: 41px;
+    display: inline-flex;
     & svg {
-      width: 100%;
+      max-width: 100%;
     }
   }
   &__text {
-    margin-top: 14px;
+    margin-top: 9px;
   }
   &__list {
     display: flex;
@@ -147,12 +149,18 @@ export default {};
   .footer {
     padding: 78px 0px 57px;
     font-size: 18px;
+    &__company {
+      max-width: 233px;
+    }
     &__descr {
       max-width: none;
       width: 100%;
       text-align: center;
       margin-top: 56px;
       font-size: 16px;
+    }
+    &__list {
+      gap: 20px;
     }
   }
 }
@@ -167,16 +175,27 @@ export default {};
       margin-bottom: 38px;
       text-align: center;
     }
-    &__logo {
-      max-width: 102px;
-      margin: 0 auto;
-    }
     &__text {
       max-width: 207px;
       margin: 11px auto 0 auto;
     }
     &__descr {
+      font-size: 13px;
       margin-top: 47px;
+    }
+  }
+}
+@media (max-width: 575px) {
+  .footer {
+    &__container {
+      gap: 30px;
+    }
+    &__logo {
+      width: 102px;
+      height: 22px;
+    }
+    &__text {
+      margin: 0 auto;
     }
   }
 }

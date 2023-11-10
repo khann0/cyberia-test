@@ -34,6 +34,7 @@ export default {};
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    align-items: flex-start;
     gap: 80px;
   }
   &__link {
@@ -58,5 +59,27 @@ export default {};
       margin-left: -10%;
     }
   }
+}
+
+@media (max-width: 991px) {
+  .nav__list {
+    flex-direction: column;
+    gap: 83px;
+    justify-content: flex-start;
+  }
+  .nav__link {
+    font-size: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .nav {
+    &__list {
+      gap: 30px;
+    }
+    &__link {
+      font-size: 18px;
+    }
+  }
+  
 }
 </style>

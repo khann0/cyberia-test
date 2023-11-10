@@ -12,7 +12,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/styles/base';
 
 .project {
@@ -22,6 +22,20 @@ export default {
   color: $clr-card;
   grid-column: 2 span;
 
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    z-index: 5;
+    border-radius: 5px;
+    transition: background-image 0.3s ease-in-out;
+    background-image: linear-gradient(0deg, #090b21 36.98%, rgba(49, 51, 65, 0) 181.42%);
+    transition: opacity 0.3s ease;
+  }
   &::after {
     content: '';
     position: absolute;
@@ -34,8 +48,8 @@ export default {
     transition: background-image 0.3s ease-in-out;
     background-image: linear-gradient(0deg, #090b21 0%, rgba(49, 51, 65, 0) 70.08%);
   }
-  &:hover::after {
-    background-image: linear-gradient(0deg, #090b21 36.98%, rgba(49, 51, 65, 0) 181.42%);
+  &:hover::before {
+    opacity: 0.7;
   }
 }
 
@@ -81,6 +95,7 @@ export default {
 }
 @media (max-width: 767px) {
   .project {
+    padding: 216px 29px 29px;
     &__title {
       font-size: 18px;
     }

@@ -12,7 +12,7 @@
 import FilterPanel from '@/components/FilterPanel.vue';
 import ProjectsList from '@/components/ProjectsList.vue';
 export default {
-  components: {FilterPanel, ProjectsList}
+  components: { FilterPanel, ProjectsList }
 }
 </script>
 
@@ -28,13 +28,19 @@ export default {
 
 @media (max-width: 991px) {
   .projects {
+    &__title {
+      margin-bottom: 82px;
+    }
     &__filter {
       margin-bottom: 52px;
     }
-  }  
+  }
 }
 @media (max-width: 767px) {
   .projects {
+    &__title {
+      margin-bottom: 42px;
+    }
     &__filter {
       margin-bottom: 97px;
     }

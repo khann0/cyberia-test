@@ -10,8 +10,7 @@ import TheFooter from '@/components/TheFooter.vue';
 
 export default {
   components: { TheHeader, TheFooter },
-}
+};
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

@@ -37,7 +37,7 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 33px;
+  gap: 32px;
   &__wrapper {
     position:relative;
     &_styled {
@@ -54,14 +54,36 @@ export default {
     justify-content: space-between;
     gap: 40px;
   }
+  &__sent-status {
+    height: 55px;
+  }
 }
-
-.feedback-form__submit {
+@media (max-width: 991px) {
+  .feedback-form {
+    max-width: none;
+    gap: 30px;
+    &__sent-status {
+      height: 50px;
+    }
+  }
 }
-.feedback-form__btn {
-}
-.feedback-form__descr {
-}
-.feedback-form__sent-status {
+@media (max-width: 575px) {
+  .feedback-form {
+    gap: 22px;
+    &__submit {
+      margin-top: 20px;
+      flex-direction: column;
+      gap: 25px;
+      text-align: center;
+    }
+    &__btn {
+      width:100%;
+    }
+    &__descr {
+      font-size: 13px;
+      line-height: normal;
+    }
+  }
+  
 }
 </style>

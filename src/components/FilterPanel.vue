@@ -78,6 +78,7 @@ export default {
     font-size: 12px;
     &__category {
       width: calc(50% - 7px);
+      padding: 10px 5px;
     }
   }
 }

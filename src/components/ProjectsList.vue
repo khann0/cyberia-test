@@ -32,11 +32,23 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .projects__list {
   margin-bottom: 174px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 40px;
+}
+@media (max-width: 991px) {
+  .projects__list {
+    gap: 23px;
+    margin-bottom: 86px;
+  }
+}
+@media (max-width: 575px) {
+  .projects__list{
+    gap: 20px;
+  }
+  
 }
 </style>

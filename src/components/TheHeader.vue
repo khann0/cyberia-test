@@ -59,8 +59,28 @@
           />
         </svg>
       </a>
-      <nav-bar></nav-bar>
-      <theme-switcher></theme-switcher>
+      <div
+        class="header__wrapper"
+        :class="{ header__wrapper_active: isBurgerActive }"
+      >
+        <nav-bar></nav-bar>
+        <div class="header__contacts">
+          <p class="header__subtitle">Контакты:</p>
+          <ul class="header__list">
+            <li><a href="" class="header__link">+7 499 679 45 79</a></li>
+            <li><a href="" class="header__link">hello@cyberia.ru</a></li>
+            <li><a href="" class="header__link">Аносова 3Б, оф. 1</a></li>
+          </ul>
+        </div>
+        <theme-switcher></theme-switcher>
+      </div>
+      <div
+        class="burger"
+        :class="{ burger_active: isBurgerActive }"
+        @click="manageBurgerMenu"
+      >
+        <span class="burger__line"></span>
+      </div>
     </div>
   </header>
 </template>
@@ -72,20 +92,207 @@ import ThemeSwitcher from '@/components/ThemeSwitcher.vue';
 export default {
   name: 'TheHeader',
   components: { NavBar, ThemeSwitcher },
+  data() {
+    return {
+      isBurgerActive: false,
+    };
+  },
+  methods: {
+    manageBurgerMenu() {
+      this.isBurgerActive = !this.isBurgerActive;
+      console.log(document.body);
+      document.body.classList.toggle('stop-scroll');
+    },
+  },
 };
 </script>
 
 <style lang="scss">
+@import '@/assets/styles/base';
+
 .header {
   padding: 75px 0;
   &__container {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+  }
+  &__wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
     gap: 50px;
   }
   &__nav {
     flex-grow: 1;
+  }
+  &__logo {
+    width: 93px;
+    height: 20px;
+    & svg {
+      width: 100%;
+    }
+  }
+  &__contacts {
+    display: none;
+    padding: 42px 0;
+    flex-direction: column;
+    border-top: 3px solid $clr-bg;
+    border-bottom: 3px solid $clr-bg;
+    color: #9aa8ba;
+  }
+  &__subtitle {
+    font-size: 30px;
+    line-height: normal;
+    margin-bottom: 44px;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 37px;
+  }
+  &__link {
+    font-family: $ff-os;
+    font-size: 27px;
+    line-height: normal;
+    color: #9aa8ba;
+  }
+}
+
+@media (max-width: 991px) {
+  .header {
+    padding: 18px 0;
+    background-color: #20212c;
+    box-shadow: $bs-mini;
+  }
+  .header__wrapper {
+    // display: none;
+    width: 100%;
+    height: 100vh;
+    padding: 172px 92px 30px 64px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 6;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    background-color: #24252f;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease 0s;
+    &_active {
+      transform: none;
+    }
+  }
+  .header__contacts {
+    display: flex;
+  }
+}
+@media (max-width: 767px) {
+  .header {
+    padding: 24px 0;
+    &__wrapper {
+      padding: 82px 48px 24px 24px;
+    }
+    &__contacts {
+      border-top: 2px solid $clr-bg;
+      border-bottom: 2px solid $clr-bg;
+    }
+    &__list {
+      gap: 19px;
+    }
+    &__subtitle {
+      font-size: 18px;
+    }
+    &__link {
+      font-size: 16px;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+.burger {
+  display: none;
+  width: 28px;
+  height: 25px;
+  padding: 0;
+  position: relative;
+  z-index: 10;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  &__line {
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    background-color: $clr-main;
+    transform: translateY(-50%);
+    border-radius: 5px;
+    transition:
+      transform 0.3s ease 0s,
+      background-color 0.3s ease 0s;
+  }
+  &::before,
+  &::after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    border-radius: 5px;
+    left: 0;
+    background-color: $clr-main;
+    transition:
+      transform 0.3s ease 0s,
+      background-color 0.3s ease 0s;
+  }
+  &::before {
+    top: 0;
+  }
+  &::after {
+    top: calc(100% - 3px);
+  }
+  &:hover::before,
+  &:hover::after,
+  &:hover &__line {
+    background-color: $clr-accent;
+  }
+  &_active {
+    & .burger__line {
+      transform: scale(0);
+    }
+    &::before {
+      top: 50%;
+      transform: rotate(45deg);
+    }
+    &::after {
+      top: 50%;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .burger {
+    display: inline-flex;
+    &_active {
+      position: absolute;
+      top: 42px;
+      right: 33px;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .burger {
+    &__line,
+    &::before,
+    &::after {
+      height: 2px;
+    }
   }
 }
 </style>
