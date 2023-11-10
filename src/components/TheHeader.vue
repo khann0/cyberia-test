@@ -128,8 +128,10 @@ export default {
     flex-grow: 1;
   }
   &__logo {
-    width: 93px;
-    height: 20px;
+    width: 131px;
+    height: 28px;
+    display: flex;
+    align-items: center;
     & svg {
       width: 100%;
     }
@@ -165,6 +167,10 @@ export default {
     padding: 18px 0;
     background-color: #20212c;
     box-shadow: $bs-mini;
+    &__logo {
+      width: 140px;
+      height: 30px;
+    }
   }
   .header__wrapper {
     // display: none;
@@ -192,6 +198,10 @@ export default {
 @media (max-width: 767px) {
   .header {
     padding: 24px 0;
+    &__logo {
+      width: 93px;
+      height: 20px;
+    }
     &__wrapper {
       padding: 82px 48px 24px 24px;
     }

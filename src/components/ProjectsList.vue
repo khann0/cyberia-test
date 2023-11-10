@@ -1,20 +1,9 @@
 <template>
   <div class="projects__list">
     <projects-list-item
-      :title="`Foodzo`"
-      :description="`Онлайн гипермаркет. Для компании были разработаны сайт и мобильное приложение и т.д.`"
-    />
-    <projects-list-item
-      :title="`Foodzo`"
-      :description="`Онлайн гипермаркет. Для компании были разработаны сайт и мобильное приложение и т.д.`"
-    />
-    <projects-list-item
-      :title="`Foodzo`"
-      :description="`Онлайн гипермаркет. Для компании были разработаны сайт и мобильное приложение и т.д.`"
-    />
-    <projects-list-item
-      :title="`Foodzo`"
-      :description="`Онлайн гипермаркет. Для компании были разработаны сайт и мобильное приложение и т.д.`"
+      v-for="project in projects"
+      :key="project.id"
+      :project="project"
     />
   </div>
 </template>
@@ -23,12 +12,10 @@
 import ProjectsListItem from './ProjectsListItem.vue';
 
 export default {
-  components: {ProjectsListItem},
-  data() {
-    return {
-      projects: [],
-    }
-  }
+  components: { ProjectsListItem },
+  props: {
+    projects: { type: Array },
+  },
 }
 </script>
 

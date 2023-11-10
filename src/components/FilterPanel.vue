@@ -2,29 +2,35 @@
   <ul class="filter">
     <li
       class="filter__category"
-      v-for="(category, idx) in categories"
-      :key="`category${idx}`"
+      :class="{ filter__category_active: category.id == this.selectedCategory }"
+      v-for="category in categories"
+      :key="category.id"
+      @click="this.setSelectedCategory(category.id);"
     >
-      {{ category }}
+      {{ category.name }}
     </li>
   </ul>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
+
 export default {
   name: 'filter-panel',
-  data() {
-    return {
-      categories: [
-        'Продвижение',
-        'Разработка',
-        'Мобильное приложение',
-        'Юзабилити - аудит',
-      ],
-      chosen: null,
-    };
+  props: {
+    categories: { type: Array },
   },
-}
+  methods: {
+    ...mapMutations({
+      setSelectedCategory: 'projects/setSelectedCategory',
+    }),
+  },
+  computed: {
+    ...mapState({
+      selectedCategory: state => state.projects.selectedCategory,
+    }),
+  },
+};
 </script>
 
 <style lang="scss">
@@ -33,8 +39,8 @@ export default {
 .filter {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  gap: 10px;
+  flex-flow: wrap;
+  gap: 129px;
   font-family: $ff-rubik;
   font-size: 20px;
   line-height: normal;
@@ -66,8 +72,6 @@ export default {
     font-family: $ff-os;
     font-size: 16px;
     font-weight: 400;
-    &__category {
-    }
   }
 }
 

@@ -1,14 +1,16 @@
 <template>
-  <a href="" class="project">
-    <img src="../assets/images/project-img.png" alt="" class="project__image" />
-    <h2 class="project__title">{{ title }}</h2>
-    <p class="project__descr">{{ description }}</p>
+  <a href="" class="project" @click="why">
+    <img :src="this.project.image_dark" alt="" class="project__image" />
+    <h2 class="project__title">{{ this.project.title }}</h2>
+    <p class="project__descr">{{ this.project.description }}</p>
   </a>
 </template>
 
 <script>
 export default {
-  props: ['imageUrl', 'title', 'description', 'category'],
+  props: {
+    project: { type: Object },
+  },
 };
 </script>
 
