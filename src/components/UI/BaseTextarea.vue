@@ -1,62 +1,35 @@
 <template>
-  <textarea :id="idx" class="textarea custom-scroll"></textarea>
-  <label class="label" for="idx">{{ labelText }}</label>
-  <div class="add-files" v-show="filesAttachable">
-    <div class="add-files__list"></div>
-    <button class="add-files__btn">
-      <svg
-        width="28"
-        height="29"
-        viewBox="0 0 28 29"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M17.4994 9.66699L8.38756 18.9301C8.05937 19.2583 7.875 19.7034 7.875 20.1675C7.875 20.6317 8.05937 21.0768 8.38756 21.405C8.71575 21.7332 9.16087 21.9175 9.625 21.9175C10.0891 21.9175 10.5342 21.7332 10.8624 21.405L21.7242 10.3919C22.0492 10.0669 22.307 9.68102 22.4829 9.25638C22.6588 8.83174 22.7494 8.37662 22.7494 7.91699C22.7494 7.45737 22.6588 7.00224 22.4829 6.5776C22.307 6.15296 22.0492 5.76712 21.7242 5.44212C21.3992 5.11711 21.0134 4.85931 20.5888 4.68341C20.1641 4.50752 19.709 4.41699 19.2494 4.41699C18.7897 4.41699 18.3346 4.50752 17.91 4.68341C17.4853 4.85931 17.0995 5.11711 16.7745 5.44212L5.91269 16.4552C4.92812 17.4398 4.375 18.7751 4.375 20.1675C4.375 21.5599 4.92812 22.8953 5.91269 23.8798C6.89726 24.8644 8.23261 25.4175 9.625 25.4175C11.0174 25.4175 12.3527 24.8644 13.3373 23.8798L22.3119 14.917"
-          stroke="#EEF3FF"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-    </button>
-  </div>
+  <textarea
+    :value="modelValue"
+    @input="updateInputValue"
+    :id="idx"
+    :name="name"
+    class="textarea custom-scroll"
+  />
+  <label class="label" :class="{ label_fixed: isLabelFixed }" for="idx">{{
+    labelText
+  }}</label>
 </template>
 
 <script>
 export default {
   props: {
-    idx: { String },
-    labelText: { String },
-    filesAttachable: {
-      type: Boolean,
-      default: true,
+    modelValue: String,
+    idx: String,
+    name: String,
+    labelText: String,
+  },
+  computed: {
+    isLabelFixed() {
+      return this.modelValue;
+    },
+  },
+  methods: {
+    updateInputValue(event) {
+      this.$emit('update:modelValue', event.target.value);
     },
   },
 };
 </script>
 
-<style lang="scss">
-@import '@/assets/styles/base';
-
-.add-files {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  &__list {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  &__btn {
-    background-color: transparent;
-    cursor: pointer;
-    & svg {
-      max-width: 100%;
-    }
-    &:hover svg path {
-      stroke: $clr-accent;
-    }
-  }
-}
-</style>
+<style lang="scss" scoped></style>

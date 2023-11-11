@@ -69,7 +69,9 @@ body {
   }
 }
 
-.label, .input, .textarea{
+.label,
+.input,
+.textarea {
   font-family: $ff-os;
   font-size: 14px;
   line-height: 22px;
@@ -81,8 +83,16 @@ body {
   transition: top 0.3s ease-in-out;
   padding: 0 10px;
   pointer-events: none;
+  &_fixed {
+    top: -10px;
+    background-color: $clr-bg-extra;
+  }
+  &_error {
+    color: $clr-error;
+  }
 }
-.input, .textarea {
+.input,
+.textarea {
   width: 100%;
   background-color: transparent;
   color: $clr-main;
@@ -92,10 +102,15 @@ body {
   border: 1px solid #9aa8ba;
   border-radius: 8px;
   padding: 17px;
+  &_error {
+    border-color: $clr-error;
+  }
 }
 
 .textarea {
-  min-height: 92px;
+  min-height: 91px;
+  padding-right: 10px;
+  margin-bottom: 25px;
   resize: none;
 }
 
@@ -105,36 +120,15 @@ body {
   background-color: $clr-bg-extra;
 }
 
-.btn {
-  padding: 20px 85px;
-  text-transform: uppercase;
-  border-radius: 35px;
-  cursor: pointer;
-  background-color: $clr-accent;
-  color: $clr-main;
-  font-family: $ff-os;
-  font-size: 13px;
-  font-weight: 300;
-  line-height: normal;
-  transition: background-color 0.3s ease-in-out;
-  &:hover {
-    background-color: #0359f3;
-  }
-}
-@media (max-width: 991px) {
-  .btn {
-    padding: 17px 76px;
-    font-size: 16px;
-    font-weight: 400;
-  }
-}
 @media (max-width: 575px) {
-  .input, .label, .textareal, .btn {
+  .input,
+  .label,
+  .textarea {
     font-size: 13px;
     line-height: normal;
   }
-  .btn {
-    padding: 15px 45px;
+  .input {
+    padding: 17px 13px;
   }
 }
 .custom-scroll::-webkit-scrollbar {
