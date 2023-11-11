@@ -1,5 +1,11 @@
 <template>
-  <header class="header">
+  <header
+    class="header"
+    :class="{
+      header_hidden: isHeaderHidden && scroll,
+      header_shown: !isHeaderHidden && scroll,
+    }"
+  >
     <div class="container header__container">
       <a href="" class="logo header__logo" @click="$router.push(`/`)">
         <svg
@@ -72,7 +78,6 @@
             <li><a href="" class="header__link">Аносова 3Б, оф. 1</a></li>
           </ul>
         </div>
-        <theme-switcher></theme-switcher>
       </div>
       <div
         class="burger"
@@ -81,6 +86,7 @@
       >
         <span class="burger__line"></span>
       </div>
+      <theme-switcher></theme-switcher>
     </div>
   </header>
 </template>
@@ -95,7 +101,14 @@ export default {
   data() {
     return {
       isBurgerActive: false,
+      isHeaderHidden: false,
+      scroll: 0,
     };
+  },
+  computed: {
+    showHeader() {
+      return true;
+    },
   },
   methods: {
     manageBurgerMenu() {
@@ -103,6 +116,21 @@ export default {
       console.log(document.body);
       document.body.classList.toggle('stop-scroll');
     },
+  },
+  watch: {
+    scroll(newScroll, oldScroll) {
+      if (oldScroll > newScroll) {
+        this.isHeaderHidden = false;
+      }
+      if (oldScroll < newScroll) {
+        this.isHeaderHidden = true;
+      }
+    },
+  },
+  mounted() {
+    window.addEventListener('scroll', () => {
+      this.scroll = window.pageYOffset;
+    });
   },
 };
 </script>
@@ -112,6 +140,12 @@ export default {
 
 .header {
   padding: 75px 0;
+  position: fixed;
+  width: 100vw;
+  transition:
+    transform 0.3s ease-out,
+    background-color 0.3s ease-out,
+    padding 0.3s ease-out;
   &__container {
     display: flex;
     flex-direction: row;
@@ -126,6 +160,7 @@ export default {
   }
   &__nav {
     flex-grow: 1;
+    margin-right: 80px;
   }
   &__logo {
     width: 131px;
@@ -160,6 +195,16 @@ export default {
     line-height: normal;
     color: #9aa8ba;
   }
+  &_hidden {
+    transform: translateY(-100%);
+  }
+  &_shown {
+    padding: 30px 0;
+    position: fixed;
+    z-index: 15;
+    transform: translateY(0);
+    background-color: #20212c;
+  }
 }
 
 @media (max-width: 991px) {
@@ -167,13 +212,13 @@ export default {
     padding: 18px 0;
     background-color: #20212c;
     box-shadow: $bs-mini;
+    z-index: 15;
     &__logo {
       width: 140px;
       height: 30px;
     }
   }
   .header__wrapper {
-    // display: none;
     width: 100%;
     height: 100vh;
     padding: 172px 92px 30px 64px;
@@ -288,6 +333,8 @@ export default {
 
 @media (max-width: 991px) {
   .burger {
+    position: absolute;
+    right: 30px;
     display: inline-flex;
     &_active {
       position: absolute;

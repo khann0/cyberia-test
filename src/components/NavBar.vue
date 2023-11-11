@@ -35,6 +35,7 @@ export default {};
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-start;
+    margin-top: 5px;
     gap: 80px;
   }
   &__link {
@@ -80,6 +81,5 @@ export default {};
       font-size: 18px;
     }
   }
-  
 }
 </style>

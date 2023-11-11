@@ -105,6 +105,7 @@ export default {
 
 @media (max-width: 991px) {
   .theme-switcher {
+    margin-right: 60px;
     &__indicator {
       position: absolute;
       width: 30px;
