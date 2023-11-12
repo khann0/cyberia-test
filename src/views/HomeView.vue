@@ -1,7 +1,5 @@
 <template>
-  <main class="main">
-    <projects-section :isPreview="true" />
-  </main>
+  <projects-section :isPreview="true" />
 </template>
 
 <script>

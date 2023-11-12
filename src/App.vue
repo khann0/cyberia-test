@@ -1,6 +1,8 @@
 <template>
   <the-header />
-  <router-view />
+  <main class="main">
+    <router-view />
+  </main>
   <scroll-up-button />
   <the-footer />
 </template>

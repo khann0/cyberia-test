@@ -1,9 +1,7 @@
 <template>
-  <main class="main">
-    <the-crumbs></the-crumbs>
-    <projects-section />
-    <feedback-section />
-  </main>
+  <the-crumbs></the-crumbs>
+  <projects-section />
+  <feedback-section />
 </template>
 
 <script>
