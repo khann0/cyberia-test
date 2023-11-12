@@ -63,14 +63,28 @@
         <p class="footer__text">Web and machine learning developing company</p>
       </div>
       <div class="footer__list">
-        <li><a href="" class="footer__link">+7 499 679 45 79</a></li>
-        <li><a href="" class="footer__link">hello@cyberia.ru</a></li>
+        <li>
+          <a href="tel:+7 499 679 45 79" class="footer__link"
+            >+7 499 679 45 79</a
+          >
+        </li>
+        <li>
+          <a href="mailto:hello@cyberia.ru" class="footer__link"
+            >hello@cyberia.ru</a
+          >
+        </li>
         <li><a href="" class="footer__link">Аносова 3Б, оф. 1</a></li>
       </div>
       <div class="footer__list">
-        <li><a href="" class="footer__link">Главная</a></li>
+        <li>
+          <a href="" class="footer__link" @click="$router.push(`/`)">Главная</a>
+        </li>
         <li><a href="" class="footer__link">Услуги</a></li>
-        <li><a href="" class="footer__link">Проекты</a></li>
+        <li>
+          <a href="" class="footer__link" @click="$router.push(`/projects`)"
+            >Проекты</a
+          >
+        </li>
       </div>
       <div class="footer__list">
         <li><a href="" class="footer__link">Блог</a></li>

@@ -73,8 +73,16 @@
         <div class="header__contacts">
           <p class="header__subtitle">Контакты:</p>
           <ul class="header__list">
-            <li><a href="" class="header__link">+7 499 679 45 79</a></li>
-            <li><a href="" class="header__link">hello@cyberia.ru</a></li>
+            <li>
+              <a href="tel:+7 499 679 45 79" class="header__link"
+                >+7 499 679 45 79</a
+              >
+            </li>
+            <li>
+              <a href="mailto:hello@cyberia.ru" class="header__link"
+                >hello@cyberia.ru</a
+              >
+            </li>
             <li><a href="" class="header__link">Аносова 3Б, оф. 1</a></li>
           </ul>
         </div>
@@ -104,11 +112,6 @@ export default {
       isHeaderHidden: false,
       scroll: 0,
     };
-  },
-  computed: {
-    showHeader() {
-      return true;
-    },
   },
   methods: {
     manageBurgerMenu() {

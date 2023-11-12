@@ -2,6 +2,9 @@
   <nav class="nav header__nav">
     <ul class="nav__list">
       <li class="nav__item">
+        <a href="" class="link nav__link">Главная</a>
+      </li>
+      <li class="nav__item">
         <a href="" class="link nav__link">О нас</a>
       </li>
       <li class="nav__item">
@@ -38,6 +41,9 @@ export default {};
     margin-top: 5px;
     gap: 80px;
   }
+  &__item:first-of-type {
+    display: none;
+  }
   &__link {
     color: $clr-main;
     font-family: inherit;
@@ -67,6 +73,9 @@ export default {};
     flex-direction: column;
     gap: 83px;
     justify-content: flex-start;
+  }
+  .nav__item:first-of-type {
+    display: list-item;
   }
   .nav__link {
     font-size: 30px;

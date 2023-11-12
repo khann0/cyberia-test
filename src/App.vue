@@ -1,15 +1,17 @@
 <template>
-  <the-header></the-header>
+  <the-header />
   <router-view />
-  <the-footer></the-footer>
+  <scroll-up-button />
+  <the-footer />
 </template>
 
 <script>
 import TheHeader from '@/components/TheHeader.vue';
 import TheFooter from '@/components/TheFooter.vue';
+import ScrollUpButton from './components/ScrollUpButton.vue';
 
 export default {
-  components: { TheHeader, TheFooter },
+  components: { TheHeader, TheFooter, ScrollUpButton },
 };
 </script>
 
