@@ -67,14 +67,16 @@ export default {
   &__btn {
     width: 72px;
     height: 72px;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
+    cursor: pointer;
     border-radius: 7px;
     transition: background-color 0.2s ease-in-out;
     background-color: $clr-accent;
-    cursor: pointer;
+
     &:hover {
       background-color: #0359f3;
     }

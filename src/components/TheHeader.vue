@@ -142,29 +142,33 @@ export default {
 @import '@/assets/styles/base';
 
 .header {
+  width: 100vw;
   padding: 75px 0;
   position: fixed;
-  width: 100vw;
   transition:
     transform 0.3s ease-out,
     background-color 0.3s ease-out,
     padding 0.3s ease-out;
+
   &__container {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
+
   &__wrapper {
     flex-grow: 1;
     display: flex;
     flex-direction: row;
     gap: 50px;
   }
+
   &__nav {
-    flex-grow: 1;
     margin-right: 80px;
+    flex-grow: 1;
   }
+
   &__logo {
     width: 131px;
     height: 28px;
@@ -174,33 +178,42 @@ export default {
       width: 100%;
     }
   }
+
   &__contacts {
-    display: none;
     padding: 42px 0;
+
+    display: none;
     flex-direction: column;
+
     border-top: 3px solid $clr-bg;
     border-bottom: 3px solid $clr-bg;
+
     color: #9aa8ba;
   }
+
   &__subtitle {
+    margin-bottom: 44px;
     font-size: 30px;
     line-height: normal;
-    margin-bottom: 44px;
   }
+
   &__list {
     display: flex;
     flex-direction: column;
     gap: 37px;
   }
+
   &__link {
+    color: #9aa8ba;
     font-family: $ff-os;
     font-size: 27px;
     line-height: normal;
-    color: #9aa8ba;
   }
+
   &_hidden {
     transform: translateY(-100%);
   }
+
   &_shown {
     padding: 30px 0;
     position: fixed;
@@ -216,6 +229,7 @@ export default {
     background-color: #20212c;
     box-shadow: $bs-mini;
     z-index: 15;
+
     &__logo {
       width: 140px;
       height: 30px;
@@ -225,16 +239,20 @@ export default {
     width: 100%;
     height: 100vh;
     padding: 172px 92px 30px 64px;
+
     display: flex;
     flex-direction: column;
+
     position: absolute;
     z-index: 6;
     left: 0;
     top: 0;
+
     overflow: auto;
     background-color: #24252f;
     transform: translateY(-100%);
     transition: transform 0.3s ease 0s;
+
     &_active {
       transform: none;
     }
@@ -246,23 +264,29 @@ export default {
 @media (max-width: 767px) {
   .header {
     padding: 24px 0;
+
     &__logo {
       width: 93px;
       height: 20px;
     }
+
     &__wrapper {
       padding: 82px 48px 24px 24px;
     }
+
     &__contacts {
       border-top: 2px solid $clr-bg;
       border-bottom: 2px solid $clr-bg;
     }
+
     &__list {
       gap: 19px;
     }
+
     &__subtitle {
       font-size: 18px;
     }
+
     &__link {
       font-size: 16px;
       &:hover {
@@ -273,60 +297,76 @@ export default {
 }
 
 .burger {
-  display: none;
   width: 28px;
   height: 25px;
   padding: 0;
+
+  display: none;
   position: relative;
   z-index: 10;
+
   border: none;
   cursor: pointer;
   background-color: transparent;
+
   &__line {
     width: 100%;
     height: 3px;
+
     position: absolute;
     left: 0;
     top: 50%;
+
+    border-radius: 5px;
+
     background-color: $clr-main;
     transform: translateY(-50%);
-    border-radius: 5px;
     transition:
       transform 0.3s ease 0s,
       background-color 0.3s ease 0s;
   }
+
   &::before,
   &::after {
     content: '';
     width: 100%;
     height: 3px;
+
     position: absolute;
-    border-radius: 5px;
     left: 0;
+
+    border-radius: 5px;
+
     background-color: $clr-main;
     transition:
       transform 0.3s ease 0s,
       background-color 0.3s ease 0s;
   }
+
   &::before {
     top: 0;
   }
+
   &::after {
     top: calc(100% - 3px);
   }
+
   &:hover::before,
   &:hover::after,
   &:hover &__line {
     background-color: $clr-accent;
   }
+
   &_active {
     & .burger__line {
       transform: scale(0);
     }
+
     &::before {
       top: 50%;
       transform: rotate(45deg);
     }
+
     &::after {
       top: 50%;
       transform: rotate(-45deg);
@@ -339,6 +379,7 @@ export default {
     position: absolute;
     right: 30px;
     display: inline-flex;
+
     &_active {
       position: absolute;
       top: 42px;
@@ -346,6 +387,7 @@ export default {
     }
   }
 }
+
 @media (max-width: 767px) {
   .burger {
     &__line,

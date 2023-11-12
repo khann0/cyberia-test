@@ -20,6 +20,7 @@
 
 <script>
 export default {
+  name: 'base-input',
   props: {
     idx: String,
     type: String,

@@ -117,12 +117,7 @@
 <script>
 import axios from 'axios';
 
-import BaseInput from '@/components/UI/BaseInput.vue';
-import BaseTextarea from '@/components/UI/BaseTextarea.vue';
-import BaseButton from '@/components/UI/BaseButton.vue';
-
 export default {
-  components: { BaseInput, BaseTextarea, BaseButton },
   data() {
     return {
       email: '',
@@ -201,7 +196,7 @@ export default {
           this.status = 'error';
         }
       } catch (e) {
-        throw new Error(e.message);
+        this.status = 'error';
       }
     },
   },
@@ -217,6 +212,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 32px;
+
   &__wrapper {
     position: relative;
     &_styled {
@@ -226,6 +222,7 @@ export default {
       border-radius: 8px;
     }
   }
+
   &__submit {
     display: flex;
     flex-direction: row;
@@ -233,6 +230,7 @@ export default {
     justify-content: space-between;
     gap: 40px;
   }
+
   &__sent-status {
     height: 55px;
     font-size: 18px;
@@ -241,6 +239,7 @@ export default {
       color: $clr-error;
     }
   }
+
   &__error-message {
     display: inline-block;
     margin-top: 8px;
@@ -250,31 +249,38 @@ export default {
 .invalid-form-item {
   border: 1px solid $clr-error;
 }
+
 @media (max-width: 991px) {
   .feedback-form {
     max-width: none;
     gap: 30px;
+
     &__sent-status {
       height: 50px;
     }
   }
 }
+
 @media (max-width: 575px) {
   .feedback-form {
     gap: 22px;
+
     &__submit {
       margin-top: 20px;
       flex-direction: column;
       gap: 25px;
       text-align: center;
     }
+
     &__btn {
       width: 100%;
     }
+
     &__descr {
       font-size: 13px;
       line-height: normal;
     }
+
     &__sent-status {
       text-align: center;
       font-size: 13px;
@@ -286,50 +292,58 @@ export default {
   display: flex;
   flex-direction: row;
   gap: 20px;
+
   &__list {
-    display: flex;
     max-width: 90%;
+    display: flex;
     flex-direction: column;
     gap: 10px;
   }
+
   &__item {
     padding: 0 12px 0 14px;
     border-radius: 3px;
     background-color: #9aa8ba;
     color: #303958;
   }
+
   &__input {
     display: none;
     align-self: flex-end;
   }
+
   &__btn {
-    background-color: transparent;
-    cursor: pointer;
     position: absolute;
     right: 15px;
     bottom: 5px;
+    background-color: transparent;
+    cursor: pointer;
+
     & svg {
       max-width: 100%;
     }
+
     &:hover svg path {
       stroke: $clr-accent;
     }
   }
 }
+
 .file-item {
   display: flex;
   flex-direction: row;
   gap: 17px;
-  &__name {
-  }
+
   &__size {
     flex-grow: 1;
     color: $clr-main;
   }
+
   &__remove {
     cursor: pointer;
   }
 }
+
 @media (max-width: 767px) {
   .file-item {
     font-size: 13px;

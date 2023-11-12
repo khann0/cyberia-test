@@ -16,7 +16,7 @@ export default {
   props: {
     projects: { type: Array },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -26,16 +26,17 @@ export default {
   grid-template-columns: repeat(6, 1fr);
   gap: 40px;
 }
+
 @media (max-width: 991px) {
   .projects__list {
-    gap: 23px;
     margin-bottom: 86px;
+    gap: 23px;
   }
 }
+
 @media (max-width: 575px) {
-  .projects__list{
+  .projects__list {
     gap: 20px;
   }
-  
 }
 </style>

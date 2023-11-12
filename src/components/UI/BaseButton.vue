@@ -5,7 +5,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'base-button',
+};
 </script>
 
 <style lang="scss" scoped>
@@ -20,8 +22,8 @@ export default {};
   color: $clr-main;
   font-family: $ff-os;
   font-size: 13px;
-  font-weight: 300;
   line-height: normal;
+  font-weight: 300;
   transition: background-color 0.3s ease-in-out;
   &:hover {
     background-color: #0359f3;

@@ -59,46 +59,57 @@ export default {
 
 <style lang="scss" scoped>
 .theme-switcher {
-  position: relative;
   width: 60px;
   height: 30px;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+
   cursor: pointer;
   background-image: linear-gradient(#60647f, #40435a);
   border: 2px solid #60647f;
   border-radius: 100px;
-  display: flex;
-  align-items: center;
+
   &__dark,
   &__light {
     width: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+
     & svg {
       max-width: 100%;
       object-fit: cover;
+
       & path {
         fill: #999cbb;
       }
     }
   }
+
   &_active {
     & svg path {
       fill: #c4c8de;
     }
   }
+
   &__indicator {
-    position: absolute;
     width: 32px;
     height: 30px;
+
+    position: absolute;
+
     border-radius: 100%;
     border: 3px solid #40435a;
     transition: left 0.2s ease-in-out;
+
     &_left {
       left: -2px;
     }
+
     &_right {
-      left: calc(100% - 30px);
+      left: calc(100% - 29px);
     }
   }
 }
@@ -107,17 +118,18 @@ export default {
   .theme-switcher {
     margin-right: 60px;
     &__indicator {
-      position: absolute;
       width: 30px;
-      height: 30px;
+      position: absolute;
       border-radius: 100%;
       border: 3px solid #40435a;
       transition: left 0.2s ease-in-out;
+
       &_left {
         left: -2px;
       }
+
       &_right {
-        left: calc(100% - 30px);
+        left: calc(100% - 28px);
       }
     }
   }

@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  name: 'base-textarea',
   props: {
     modelValue: String,
     idx: String,

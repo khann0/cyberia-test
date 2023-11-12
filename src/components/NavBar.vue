@@ -34,22 +34,26 @@ export default {};
 
 .nav {
   &__list {
+    margin-top: 5px;
+
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-start;
-    margin-top: 5px;
     gap: 80px;
   }
+
   &__item:first-of-type {
     display: none;
   }
+
   &__link {
     color: $clr-main;
     font-family: inherit;
     font-size: 18px;
     line-height: normal;
     font-weight: 300;
+
     &::after {
       content: '';
       width: 0px;
@@ -57,10 +61,12 @@ export default {};
       margin-top: 5px;
       margin-left: 50%;
       display: block;
+
       border-radius: 7px;
       transition: all 0.3s ease-in-out;
       background-color: $clr-accent;
     }
+
     &:hover::after {
       width: 120%;
       margin-left: -10%;
@@ -74,18 +80,22 @@ export default {};
     gap: 83px;
     justify-content: flex-start;
   }
+
   .nav__item:first-of-type {
     display: list-item;
   }
+
   .nav__link {
     font-size: 30px;
   }
 }
+
 @media (max-width: 767px) {
   .nav {
     &__list {
       gap: 30px;
     }
+
     &__link {
       font-size: 18px;
     }

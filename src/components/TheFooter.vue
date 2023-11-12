@@ -121,38 +121,47 @@ export default {};
   background-color: $clr-bg;
   font-family: $ff-os;
   line-height: normal;
+
   &__container {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     gap: 15px;
   }
+
   &__company {
     max-width: 200px;
   }
+
   &__logo {
     width: 196px;
     height: 41px;
     display: inline-flex;
+
     & svg {
       max-width: 100%;
     }
   }
+
   &__text {
     margin-top: 9px;
   }
+
   &__list {
     display: flex;
     flex-direction: column;
     gap: 15px;
   }
+
   &__descr {
     max-width: 359px;
   }
+
   &__link {
-    color: $clr-main;
     display: inline-block;
+    color: $clr-main;
     transition: color 0.3s ease-in-out;
+
     &:hover {
       color: $clr-accent;
     }
@@ -163,16 +172,19 @@ export default {};
   .footer {
     padding: 78px 0px 57px;
     font-size: 18px;
+
     &__company {
       max-width: 233px;
     }
+
     &__descr {
       max-width: none;
       width: 100%;
-      text-align: center;
       margin-top: 56px;
+      text-align: center;
       font-size: 16px;
     }
+
     &__list {
       gap: 20px;
     }
@@ -183,16 +195,19 @@ export default {};
   .footer {
     padding: 30px 0px;
     font-size: 13px;
+
     &__company {
       max-width: none;
       width: 100%;
       margin-bottom: 38px;
       text-align: center;
     }
+
     &__text {
       max-width: 207px;
       margin: 11px auto 0 auto;
     }
+
     &__descr {
       font-size: 13px;
       margin-top: 47px;
@@ -204,10 +219,12 @@ export default {};
     &__container {
       gap: 30px;
     }
+
     &__logo {
       width: 102px;
       height: 22px;
     }
+
     &__text {
       margin: 0 auto;
     }

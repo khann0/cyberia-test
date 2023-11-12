@@ -18,7 +18,6 @@ export const projectsModule = {
           });
           return fits;
         });
-        console.log(sorted);
         return sorted;
       } else {
         return state.projects;
