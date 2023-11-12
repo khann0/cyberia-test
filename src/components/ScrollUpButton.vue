@@ -93,4 +93,16 @@ export default {
     opacity: 1;
   }
 }
+
+@media (max-width: 767px) {
+  .scroll-up {
+    &_shown {
+      bottom: 70px;
+    }
+    &__btn {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}
 </style>
